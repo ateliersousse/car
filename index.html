@@ -1,253 +1,136 @@
-<!--
-  Template: AutoPaint - Simple GitHub Pages Site
-  - Copy this entire file into a file named `index.html` in your repo (e.g., achrefbaklouti.github.io)
-  - Create folders: /images and /videos and put your assets there (placeholders below)
-  - Contact form uses Formspree (free) — replace the action URL with your Formspree endpoint
-  - Edit brandName, letters, and social links in the <script> config at the bottom
-
-  How to deploy quickly (local -> GitHub):
-  1) Create a GitHub repo named: yourusername.github.io
-  2) Add this index.html file and push (or use GitHub web editor to paste)
-  3) Add /images and /videos assets to the repo
-  4) Wait a minute and open: https://yourusername.github.io
-
-  If you prefer to test locally: open this file in your browser.
--->
-
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-  <link rel="icon" href="/assets/images/Logo.png" type="image/png"/>
-  <img src="/assets/images/Logo.png" alt="logo" class="logo-fixed">
-  <style>
-    logo-fixed {
-  position: fixed; 
-  top: 10px;      
-  left: 10px;      
-  width: 10%;      
-  z-index: 1000;   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Star 4 Car - Peinture et réparation de voitures de luxe / دهان وتصليح سيارات فاخرة</title>
+<meta name="description" content="Peinture et réparation de voitures de luxe. Découvrez les images avant/après des voitures BMW, Audi, Porsche, Mercedes / دهان سيارات فاخرة وتصليح خدوش السيارات. شوف صور قبل وبعد لسيارات BMW, Audi, Porsche, Mercedes">
+<meta name="keywords" content="Peinture voiture, réparation voiture, rayures voiture, BMW, Audi, Porsche, Mercedes, Gold Star 4 Car, Polissage, Ponçage, Correction / دهان سيارات, تصليح سيارات, خدوش سيارات, BMW, Audi, Porsche, Mercedes, Gold Star 4 Car, بوليش, بونصاج, تصحيح ألوان">
+<meta name="author" content="Gold Star 4 Car">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://paneerty.github.io/-Star-Pro-Car-/">
+<meta property="og:title" content="Gold Star 4 Car - Peinture et réparation de voitures de luxe / دهان وتصليح سيارات فاخرة">
+<meta property="og:description" content="Découvrez images et vidéos avant/après des voitures de luxe. Services Ponçage, Polissage, Correction / شوف صور وفيديوهات قبل وبعد لسيارات فاخرة. خدمات بونصاج، بوليش، تصحيح الألوان">
+<meta property="og:image" content="images/ai_car1.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gold Star 4 Car - Peinture voitures de luxe / دهان سيارات فاخرة">
+<meta name="twitter:description" content="Services de réparation voiture avant/après. Découvrez images et vidéos BMW, Audi, Porsche / خدمات تصليح السيارات قبل وبعد. شوف صور وفيديوهات BMW, Audi, Porsche">
+<meta name="twitter:image" content="images/ai_car1.jpg">
+
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Gold Star 4 Car",
+  "description": "Peinture et réparation de voitures de luxe / دهان سيارات فاخرة وتصليح خدوش السيارات",
+  "provider": {
+    "@type": "Organization",
+    "name": "Gold Star 4 Car",
+    "sameAs": [
+      "https://www.instagram.com/vein_of_live",
+      "https://www.facebook.com/share/1FLnbJMcmQ/",
+      "https://www.tiktok.com/@ashref.auto?_t=ZN-90W6Z7w9ns6&_r=1"
+    ]
+  },
+  "areaServed": "Tunisia",
+  "image": "images/ai_car1.jpg",
+  "url": "https://paneerty.github.io/-Star-Pro-Car-/"
 }
-  </style>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gold Star - 4 ur car</title>
-  <meta name="description" content="professionnal car paint 🎨 - Gold star">
-  <style>
-    :root{--bg:#0f1724;--card:#111827;--accent:#c02424;--muted:#9ca3af;--glass: rgba(255,255,255,0.04)}
-    *{box-sizing:border-box;font-family: 'Arial', sans-serif}
-    body{margin:0;background:linear-gradient(180deg,#05060a 0%, #0f1724 100%);color:#e6eef8;line-height:1.45}
-    .container{max-width:1100px;margin:0 auto;padding:20px}
-
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:64px;height:64px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,#1f2937,#374151);box-shadow:0 6px 20px rgba(0,0,0,0.6)}
-    .logo svg{width:42px;height:42px}
-    h1{font-size:20px;margin:0}
-    p.small{color:var(--muted);margin:0 0 0 2px;font-size:13px}
-
-    nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-size:14px}
-    nav a:hover{color:#fff}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;margin:30px 0}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
-    .hero h2{margin:0 0 8px;font-size:26px}
-    .hero p{color:var(--muted)}
-
-    .cta{display:flex;gap:10px;margin-top:12px}
-    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
-
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
-    .thumb{position:relative;border-radius:10px;overflow:hidden;background:var(--glass);min-height:160px}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.02)}
-    .thumb .label{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,0.5);padding:6px 10px;border-radius:6px;font-size:13px}
-
-    section h3{margin:0 0 8px}
-
-    .contact-row{display:flex;gap:14px;align-items:center}
-    .socials{display:flex;gap:8px}
-    .socials a{background:var(--glass);padding:8px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:700}
-
-    footer{margin-top:28px;padding:18px 0;color:var(--muted);font-size:13px;text-align:center}
-
-    /* responsive */
-    @media (max-width:880px){.hero{grid-template-columns:1fr}.logo{width:56px;height:56px}}
-
-    /* lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;padding:20px}
-    .lightbox img{max-width:95%;max-height:90%;border-radius:8px}
-    .close-x{position:absolute;right:18px;top:18px;color:#fff;font-size:28px;cursor:pointer}
-
-    /* small helper */
-    .muted{color:var(--muted)}
-  </style>
+</script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo" id="logo-svg">
-          <!-- SVG logo will be inserted by script -->
-        </div>
-        <div>
-          <h1 id="brandName">AutoPaint</h1>
-          <p class="small">دهان سيارات فاخرة &middot; تصميم محتوى AI</p>
-        </div>
-      </div>
-      <nav>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#videos">Videos</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="card">
-          <h2>نصنعلك صور وفيديوهات للسيارات بطريقة احترافية بالـ AI</h2>
-          <p class="muted">ما عندكش ورشة فخمة؟ ما فما حتى مشكل — نعطيك صور قبل/بعد، فيديوهات قصيرة، ونسوّق لخدماتك على السوشيال ميديا.</p>
-
-          <div class="cta">
-            <a class="btn" id="book-btn">اطلب استشارة مجانية</a>
-            <a class="btn ghost" id="portfolio-btn">شوف Portfolio</a>
-          </div>
-
-          <div style="margin-top:14px;color:var(--muted);font-size:14px">خدماتنا: تصميم صور AI، فيديوهات Reels، mockups، تصميم شعارات</div>
-        </div>
-
-        <aside class="card">
-          <h3>خدمة سريعة</h3>
-          <p class="muted">ابعثلنا صورة أو وصف ونعطيوك mockup خلال 24 ساعة.</p>
-          <div style="margin-top:12px" class="contact-row">
-            <div>
-              <strong>واتساب:</strong>
-              <div class="muted">+216 26xxxxxxx</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <strong>روابط سريعة</strong>
-            <div class="socials" style="margin-top:8px">
-              <a href="#">Instagram</a>
-              <a href="#">Facebook</a>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="portfolio">
-        <h3>نماذج أعمال (AI Mockups)</h3>
-        <p class="muted">صور مولّدة بالـ AI تمثل قبل/بعد دهان لسيارات فخمة.</p>
-        <div class="grid" id="portfolio-grid">
-          <!-- thumbnails (replace images/ai_car1.jpg etc.) -->
-          <div class="thumb"><img src="images/ai_car1.jpg" alt="AI car 1"><div class="label">Audi RS7 - Before/After</div></div>
-          <div class="thumb"><img src="images/ai_car2.jpg" alt="AI car 2"><div class="label">Porsche 911 - Matte Red</div></div>
-          <div class="thumb"><img src="images/ai_car3.jpg" alt="AI car 3"><div class="label">BMW M4 - Ceramic Finish</div></div>
-          <div class="thumb"><img src="images/ai_car4.jpg" alt="AI car 4"><div class="label">Luxury Sedan - Chrome</div></div>
-        </div>
-      </section>
-
-      <section id="videos" style="margin-top:18px">
-        <h3>فيديوهات قصيرة</h3>
-        <p class="muted">فيديوهات Reels جاهزة للنشر — صور AI مركبة وموسيقى مناسبة.</p>
-        <div class="grid">
-          <div class="thumb"><img src="images/video_thumb1.jpg" alt="video 1" data-video="videos/video1.mp4"><div class="label">Video: Color change - Audi</div></div>
-          <div class="thumb"><img src="images/video_thumb2.jpg" alt="video 2" data-video="videos/video2.mp4"><div class="label">Video: Matte finish - Porsche</div></div>
-        </div>
-      </section>
-
-      <section id="contact" style="margin-top:18px">
-        <h3>تواصل معانا</h3>
-        <p class="muted">عبّي الفورما باش نتواصلو معاك بسرعة.</p>
-        <!-- Example form using Formspree (replace action URL) -->
-        <div class="card">
-          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div style="display:flex;gap:8px;margin-bottom:8px">
-              <input name="name" placeholder="الاسم" required style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-              <input name="phone" placeholder="الهاتف" style="width:160px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-            </div>
-            <input name="email" placeholder="البريد الإلكتروني" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:8px">
-            <textarea name="message" placeholder="شنو تحب؟ (تفاصيل عن العربية)" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:8px"></textarea>
-            <button class="btn" type="submit">ابعثلنا</button>
-          </form>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      تمّ الإنشاء بواسطة <strong id="brandFooter">AutoPaint</strong> &middot; حقوق الطبع والنشر © <span id="year"></span>
-    </footer>
+<div class="container">
+<header>
+  <div class="brand">
+    <div class="logo" id="logo-svg"></div>
+    <div>
+      <h1 id="brandName">Gold Star 4 Car</h1>
+      <p class="small">Peinture voitures de luxe &middot; Contenu AI / دهان سيارات فاخرة &middot; تصميم محتوى AI</p>
+    </div>
   </div>
+  <nav>
+    <a href="#portfolio">Portfolio / نماذج أعمال</a>
+    <a href="#videos">Vidéos / فيديوهات قصيرة</a>
+    <a href="#contact">Contact / تواصل معانا</a>
+  </nav>
+</header>
 
-  <!-- Lightbox & video player -->
-  <div class="lightbox" id="lightbox">
-    <div class="close-x" id="closeLight">×</div>
-    <img id="lightImg" src="" alt="">
-    <video id="lightVideo" controls style="max-width:95%;max-height:90%;display:none;border-radius:8px"></video>
+<main>
+<section class="hero">
+  <div class="card">
+    <h2>Nous créons des images et vidéos de voitures de manière professionnelle avec AI / نصنعلك صور وفيديوهات للسيارات بطريقة احترافية بالـ AI</h2>
+    <p>
+      Pas d'atelier? Pas de souci — nous fournissons images avant/après, vidéos courtes et marketing sur les réseaux sociaux. / ما عندكش ورشة فخمة؟ ما فما حتى مشكل — نعطيك صور قبل/بعد، فيديوهات قصيرة، ونسوّق لخدماتك على السوشيال ميديا.
+    </p>
+    <p>
+      Services: création d'images AI, vidéos Reels, mockups, logos, peinture, réparation rayures, polissage, correction couleur / خدماتنا تشمل: تصميم صور AI، فيديوهات Reels، mockups، تصميم شعارات، تصليح دهان، إزالة خدوش، بوليش، تصحيح ألوان السيارات.
+    </p>
+    <div class="cta">
+      <button class="btn" id="book-btn">Demandez une consultation gratuite / اطلب استشارة مجانية</button>
+      <button class="btn ghost" id="portfolio-btn">Voir notre portfolio / شوف نماذج أعمالنا</button>
+    </div>
   </div>
+  <aside class="card">
+    <h3>Service rapide / خدمة سريعة</h3>
+    <p>Envoyez-nous une photo ou une description de la voiture, nous fournissons le mockup en 24h. / ابعثلنا صورة أو وصف للسيارة ونعطيوك mockup خلال 24 ساعة.</p>
+    <div class="contact-row">
+      <div><strong>WhatsApp:</strong><br><span id="whatsapp">+216 26485396</span></div>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/vein_of_live">Instagram</a>
+      <a href="https://www.facebook.com/share/1FLnbJMcmQ/">Facebook</a>
+      <a href="https://www.tiktok.com/@ashref.auto?_t=ZN-90W6Z7w9ns6&_r=1">TikTok</a>
+    </div>
+  </aside>
+</section>
 
-  <script>
-    // CONFIG: عدّل القيم هوني حسب ما تحب
-    const config = {
-      brandName: 'AutoPaint by Achref',
-      letters: 'AP', // الحروف اللي تحب في اللوجو
-      whatsapp: '+21626xxxxxxx',
-      instagram: '#',
-      facebook: '#'
-    };
+<section id="portfolio">
+  <h3>Portfolio (Images AI) / نماذج أعمال (صور AI)</h3>
+  <div class="grid" id="portfolio-grid">
+    <div class="thumb"><img src="images/ai_car1.jpg" alt="BMW M4 avant/après / قبل وبعد دهان BMW M4"><div class="label">BMW M4 - Avant/Après / قبل/بعد</div></div>
+    <div class="thumb"><img src="images/ai_car2.jpg" alt="Audi RS7 avant/après / قبل وبعد دهان Audi RS7"><div class="label">Audi RS7 - Avant/Après / قبل/بعد</div></div>
+    <div class="thumb"><img src="images/ai_car3.jpg" alt="Porsche 911 avant/après / قبل وبعد دهان Porsche 911"><div class="label">Porsche 911 - Avant/Après / قبل/بعد</div></div>
+    <div class="thumb"><img src="images/ai_car4.jpg" alt="Mercedes avant/après / قبل وبعد دهان Mercedes"><div class="label">Mercedes - Avant/Après / قبل/بعد</div></div>
+  </div>
+</section>
 
-    // render logo SVG with two letters (metallic style)
-    function renderLogo(letters){
-      const svg = `
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0%" stop-color="#b8c2cb"/>
-            <stop offset="50%" stop-color="#ffffff"/>
-            <stop offset="100%" stop-color="#6b7280"/>
-          </linearGradient>
-        </defs>
-        <rect x="6" y="6" width="108" height="108" rx="14" fill="url(#g1)" opacity="0.12"/>
-        <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-size="46" font-weight="800" fill="url(#g1)" font-family="Montserrat, Arial">${letters}</text>
-      </svg>`;
-      document.getElementById('logo-svg').innerHTML = svg;
-      document.getElementById('brandName').innerText = config.brandName;
-      document.getElementById('brandFooter').innerText = config.brandName;
-      document.getElementById('year').innerText = new Date().getFullYear();
-    }
-    renderLogo(config.letters);
+<section id="videos">
+  <h3>Vidéos courtes / فيديوهات قصيرة</h3>
+  <div class="grid">
+    <div class="thumb" data-video="videos/video1.mp4"><img src="images/video_thumb1.jpg" alt="Vidéo réparation BMW M4 / فيديو تصليح BMW M4"><div class="label">BMW M4 - Vidéo Avant/Après / فيديو قبل/بعد</div></div>
+    <div class="thumb" data-video="videos/video2.mp4"><img src="images/video_thumb2.jpg" alt="Vidéo réparation Audi RS7 / فيديو تصليح Audi RS7"><div class="label">Audi RS7 - Vidéo Avant/Après / فيديو قبل/بعد</div></div>
+  </div>
+</section>
 
-    // Lightbox handlers
-    const lightbox = document.getElementById('lightbox');
-    const lightImg = document.getElementById('lightImg');
-    const lightVideo = document.getElementById('lightVideo');
-    document.querySelectorAll('.thumb img').forEach(img=>{
-      img.addEventListener('click', ()=>{
-        const vid = img.getAttribute('data-video');
-        if(vid){
-          lightImg.style.display='none';
-          lightVideo.src = vid; lightVideo.style.display='block';
-        } else {
-          lightVideo.pause(); lightVideo.style.display='none';
-          lightImg.src = img.src; lightImg.style.display='block';
-        }
-        lightbox.style.display='flex';
-      })
-    })
-    document.getElementById('closeLight').addEventListener('click', ()=>{ lightbox.style.display='none'; lightVideo.pause(); lightVideo.src=''; });
-    lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox){ lightbox.style.display='none'; lightVideo.pause(); lightVideo.src=''; } });
+<section id="contact">
+  <h3>Contact / تواصل معانا</h3>
+  <div class="card">
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input name="name" placeholder="Nom / الاسم" required>
+      <input name="phone" placeholder="Téléphone / الهاتف">
+      <input name="email" placeholder="Email / البريد الإلكتروني">
+      <textarea name="message" placeholder="Votre message / شنو تحب؟"></textarea>
+      <button class="btn" type="submit">Envoyer / ابعثلنا</button>
+    </form>
+  </div>
+</section>
+</main>
 
-    // simple UI bindings
-    document.getElementById('book-btn').addEventListener('click', ()=>{ location.hash='#contact'; window.scrollTo({top:document.getElementById('contact').offsetTop-80,behavior:'smooth'}); });
-    document.getElementById('portfolio-btn').addEventListener('click', ()=>{ location.hash='#portfolio'; window.scrollTo({top:document.getElementById('portfolio').offsetTop-80,behavior:'smooth'}); });
+<footer>Créé par <strong>Gold Star 4 Car</strong> &middot; © <span id="year"></span> / تمّ الإنشاء بواسطة <strong>Gold Star 4 Car</strong> &middot; حقوق الطبع والنشر</footer>
 
-    // form submit feedback
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      // let Formspree handle submission; show quick message
-      alert('شكرا! تم ارسال طلبك. راح نتواصلو معاك في أقرب وقت.');
-    });
-  </script>
+<div class="lightbox" id="lightbox">
+  <div class="close-x" id="closeLight">×</div>
+  <img id="lightImg">
+  <video id="lightVideo" controls></video>
+</div>
+
+<script src="script.js"></script>
 </body>
-</html>
+  </html>
+  
