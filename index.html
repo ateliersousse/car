@@ -3,120 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold Star 4 Car - Galerie et Contact</title>
+<title>Gold Star 4 Car - Galerie Instagram Style</title>
 <meta name="description" content="Peinture, réparation, polissage et accessoires voitures de luxe. Voir les images avant/après de toutes les voitures">
 <meta name="keywords" content="BMW, Maserati, Mercedes, Jaguar, Vidette, voitures, peinture, réparation, polissage, accessoires">
 <meta name="author" content="Gold Star 4 Car">
 <style>
-body {margin:0;font-family:'Arial',sans-serif;background:#f5f5f5;color:#000;scroll-behavior:smooth;}
-header {display:flex;align-items:center;padding:10px 20px;}
-header .brand img {height:60px;margin-right:15px;}
-header h1 {font-size:28px;color:gold;margin:0;}
-.top-bar {display:flex;align-items:center;gap:15px;background:#fff;padding:10px 20px;box-shadow:0 2px 5px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;justify-content:space-between;}
-.top-bar a {text-decoration:none;color:#000;font-weight:bold;padding:6px 12px;border-radius:5px;transition:0.2s;background:none;}
-.top-bar a:hover {background:gold;color:#111;}
-.contact-line {display:flex;align-items:center;gap:20px;}
-.contact-line a {display:flex;align-items:center;gap:5px;color:#000;text-decoration:none;font-weight:bold;}
-.contact-line a:hover {color:gold;}
-.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:20px;}
-.thumb {position:relative;cursor:pointer;overflow:hidden;border-radius:10px;}
-.thumb img {width:100%;border-radius:10px;transition:transform 0.3s;}
-.thumb:hover img {transform: scale(1.05);}
-.thumb .overlay {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);color:gold;display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s;text-align:center;font-size:14px;padding:10px;}
-.thumb:hover .overlay {opacity:1;}
-.btn {background-color:gold;color:#111;border:none;padding:10px 15px;border-radius:6px;font-weight:bold;cursor:pointer;transition:0.2s;}
-.btn:hover {background:#e6c200;}
-.card {background:#fff;padding:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);margin:20px 0;}
-footer {text-align:center;padding:15px;background:#fff;margin-top:30px;font-size:14px;color:#000;}
-.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
+body {margin:0;font-family:'Arial',sans-serif;background:#f2f2f2;color:#111;scroll-behavior:smooth;}
+header {display:flex;align-items:center;padding:15px 20px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+header img {height:60px;margin-right:15px;}
+header h1 {font-size:24px;color:#222;}
+.sidebar {position:fixed;left:0;top:0;width:80px;height:100%;background:#222;display:flex;flex-direction:column;align-items:center;padding-top:20px;z-index:1000;}
+.sidebar a {color:gold;margin:20px 0;font-size:28px;display:flex;justify-content:center;position:relative;transition:transform 0.2s;}
+.sidebar a:hover {transform:scale(1.2);}
+.sidebar a .tooltip {visibility:hidden;width:140px;background:#333;color:gold;text-align:center;border-radius:5px;padding:5px;position:absolute;left:90px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;z-index:2000;}
+.sidebar a:hover .tooltip {visibility:visible;}
+.sidebar a.active {color:#fff;}
+.gallery {display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:20px;}
+.gallery .thumb {position:relative;overflow:hidden;border-radius:10px;cursor:pointer;}
+.gallery .thumb img {width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 0.3s;display:block;}
+.gallery .thumb:hover img {transform:scale(1.05);}
+.gallery .thumb .overlay {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);color:gold;display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s;font-weight:bold;text-align:center;}
+.gallery .thumb:hover .overlay {opacity:1;}
+#contact {display:none;}
+.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
 .lightbox img {max-width:90%;max-height:80%;border-radius:10px;margin-bottom:10px;}
 .lightbox button {background:gold;color:#111;border:none;padding:10px 20px;margin:5px;border-radius:6px;cursor:pointer;font-weight:bold;}
 .lightbox button:hover {background:#e6c200;}
 .close-x {position:absolute;top:20px;right:30px;font-size:40px;color:gold;cursor:pointer;}
-@media(max-width:768px){.top-bar{flex-direction:column;align-items:flex-start;}.contact-line{margin-left:0;}}
+footer {text-align:center;padding:15px;background:#fff;margin-top:20px;font-size:14px;box-shadow:0 -2px 5px rgba(0,0,0,0.1);}
+@media(max-width:768px){.sidebar{position:relative;width:100%;flex-direction:row;justify-content:space-around;padding:10px 0;}}
 </style>
 </head>
 <body>
+
 <header>
-<div class="brand">
-<img src="assets/images/logo.png" alt="Gold Star 4 Car">
-<h1>Gold Star 4 Car</h1>
-</div>
+  <img src="assets/images/logo.png" alt="Gold Star 4 Car">
+  <h1>Gold Star 4 Car</h1>
 </header>
-<div class="top-bar">
-<div>
-<a href="#feedback">Feedback</a>
-<a href="#contact">Contact</a>
+
+<div class="sidebar">
+  <a href="#gallery" class="active">📁<span class="tooltip">Galerie</span></a>
+  <a href="#contactTrigger">📞<span class="tooltip">Contact</span></a>
 </div>
-<div class="contact-line">
-<a href="https://wa.me/21626485696" target="_blank">📱 +216 26485696</a>
-<a href="tel:+21626485696">☎ +216 26485696</a>
-<a href="tel:+21697397183">☎ +216 97397183</a>
-</div>
-</div>
-<section id="portfolio">
-<h2>Galerie</h2>
-<div class="grid" id="portfolio-grid"></div>
+
+<section class="gallery" id="gallery">
+  <!-- BMW -->
+  <div class="thumb"><img src="assets/images/bmw/bmw1.jpg" alt="BMW 1"><div class="overlay">BMW 1</div></div>
+  <div class="thumb"><img src="assets/images/bmw/bmw2.jpg" alt="BMW 2"><div class="overlay">BMW 2</div></div>
+  <!-- Maserati -->
+  <div class="thumb"><img src="assets/images/maserati/maserati1.jpg" alt="Maserati 1"><div class="overlay">Maserati 1</div></div>
+  <div class="thumb"><img src="assets/images/maserati/maserati2.jpg" alt="Maserati 2"><div class="overlay">Maserati 2</div></div>
+  <!-- Mercedes -->
+  <div class="thumb"><img src="assets/images/mercedes/mercedes1.jpg" alt="Mercedes 1"><div class="overlay">Mercedes 1</div></div>
+  <!-- Jaguar -->
+  <div class="thumb"><img src="assets/images/jaguar/jaguar1.jpg" alt="Jaguar 1"><div class="overlay">Jaguar 1</div></div>
 </section>
-<section id="feedback">
-<h2>Feedback</h2>
-<div class="card">
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-<input name="name" placeholder="Nom" required style="width:100%;padding:8px;margin-bottom:10px;">
-<input name="email" placeholder="Email" required style="width:100%;padding:8px;margin-bottom:10px;">
-<textarea name="message" placeholder="Votre message" style="width:100%;padding:8px;margin-bottom:10px;"></textarea>
-<button class="btn" type="submit">Envoyer</button>
-</form>
-</div>
-</section>
+
 <section id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p>Vous pouvez nous contacter via WhatsApp ou téléphone aux numéros indiqués en haut de la page.</p>
-</div>
+  <h2>Contact</h2>
+  <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input name="name" placeholder="Nom" required>
+    <input name="phone" placeholder="Téléphone">
+    <input name="email" placeholder="Email">
+    <textarea name="message" placeholder="Votre message"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+  <div style="margin-top:10px;">
+    <p>WhatsApp & Appel: +21626485696</p>
+    <p>Appel uniquement: +21697397183</p>
+  </div>
 </section>
-<footer>© <span id="year"></span> Gold Star 4 Car</footer>
+
 <div class="lightbox" id="lightbox">
-<div class="close-x" id="closeLight">×</div>
-<img id="lightImg">
-<div>
-<button id="prevBtn"><</button>
-<button id="nextBtn">></button>
+  <div class="close-x" id="closeLight">×</div>
+  <img id="lightImg">
+  <div>
+    <button id="prevBtn"><</button>
+    <button id="nextBtn">></button>
+  </div>
 </div>
-</div>
+
+<footer>© <span id="year"></span> Gold Star 4 Car</footer>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 let currentImgs = [];
 let currentIndex = 0;
 const lightbox = document.getElementById('lightbox');
 const lightImg = document.getElementById('lightImg');
-function showImage(index){if(currentImgs.length===0) return;currentIndex=(index+currentImgs.length)%currentImgs.length;lightImg.src=currentImgs[currentIndex];lightbox.style.display='flex';}
-document.getElementById('closeLight').addEventListener('click',()=>{lightbox.style.display='none';});
-document.getElementById('prevBtn').addEventListener('click',()=>showImage(currentIndex-1));
-document.getElementById('nextBtn').addEventListener('click',()=>showImage(currentIndex+1));
-const owner="Paneerty";
-const repo="-Star-Pro-Car-";
-const carTypes=["bmw","maserati","mercedes","vidette","jaguar"];
-const portfolioGrid=document.getElementById('portfolio-grid');
-carTypes.forEach(type=>{
-fetch(`https://api.github.com/repos/${owner}/${repo}/contents/assets/images/${type}`)
-.then(r=>r.ok?r.json():Promise.reject(r.status))
-.then(files=>{
-if(!files.length) return;
-files.filter(f=>/\.(jpe?g|png|gif|webp)$/i.test(f.name)).forEach(f=>{
-const div=document.createElement('div');
-div.className='thumb';
-const img=document.createElement('img');
-img.src=f.download_url;
-img.alt=f.name;
-img.loading='lazy';
-div.appendChild(img);
-portfolioGrid.appendChild(div);
-img.addEventListener('click',()=>{currentImgs=Array.from(document.querySelectorAll('#portfolio-grid img')).map(i=>i.src);currentIndex=currentImgs.indexOf(img.src);showImage(currentIndex);});
+
+document.querySelectorAll('.gallery .thumb img').forEach((img,i)=>{
+  img.addEventListener('click',()=>{
+    currentImgs = Array.from(document.querySelectorAll('.gallery .thumb img')).map(im=>im.src);
+    currentIndex = i;
+    showImage(currentIndex);
+  });
 });
-})
-.catch(err=>console.error('GitHub fetch error:',err));
+
+function showImage(index){
+  currentIndex = (index + currentImgs.length) % currentImgs.length;
+  lightImg.src = currentImgs[currentIndex];
+  lightbox.style.display = 'flex';
+}
+
+document.getElementById('closeLight').addEventListener('click',()=>{lightbox.style.display='none';});
+document.getElementById('prevBtn').addEventListener('click',()=> showImage(currentIndex-1));
+document.getElementById('nextBtn').addEventListener('click',()=> showImage(currentIndex+1));
+
+// Afficher le contact seulement quand l'utilisateur clique sur l'icône
+const contactTrigger = document.querySelector('.sidebar a[href="#contactTrigger"]');
+contactTrigger.addEventListener('click',(e)=>{
+  e.preventDefault();
+  document.getElementById('contact').style.display='block';
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
 });
 </script>
+
 </body>
-  </html>
+     </html>
