@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold Star 4 Car - Car Gallery</title>
+<title>Gold Star 4 Car - Galerie et Services</title>
 <meta name="description" content="Peinture, réparation, polissage et accessoires voitures de luxe. Voir les images avant/après de toutes les voitures">
 <meta name="keywords" content="BMW, Maserati, Mercedes, Jaguar, Vidette, voitures, peinture, réparation, polissage, accessoires">
 <meta name="author" content="Gold Star 4 Car">
@@ -28,113 +28,168 @@ header .brand img {height:50px;margin-right:10px;}
 .show-all-btn {margin:10px;background:gold;color:#111;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:bold;}
 .show-all-btn:hover {background:#e6c200;}
 footer {text-align:center;padding:15px;background:#222;margin-top:30px;font-size:14px;}
-.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
-.lightbox img {max-width:90%;max-height:80%;border-radius:10px;margin-bottom:10px;}
+.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
+.lightbox img {max-width:90%;max-height:80%;border-radius:10px;margin-bottom:10px;transition: transform 0.3s;}
+.lightbox .details {color:gold;font-size:16px;margin-bottom:5px;text-align:center;}
 .lightbox button {background:gold;color:#111;border:none;padding:10px 20px;margin:5px;border-radius:6px;cursor:pointer;font-weight:bold;}
 .lightbox button:hover {background:#e6c200;}
 .close-x {position:absolute;top:20px;right:30px;font-size:40px;color:gold;cursor:pointer;}
-h4{margin-top:20px;color:gold;}
+h2,h3{margin-top:20px;color:gold;}
 @media(max-width:768px){body{flex-direction:column;}.sidebar{position:relative;width:100%;flex-direction:row;justify-content:space-around;padding:10px 0;}.content{margin-left:0;}}
 </style>
 </head>
 <body>
+
 <div class="sidebar">
 <a href="#portfolio" class="active">📁<span class="tooltip">Portfolio</span></a>
 <a href="#all-images">🖼️<span class="tooltip">All Images</span></a>
+<a href="#contact">📞<span class="tooltip">Contact Form</span></a>
 </div>
+
 <div class="content">
 <header>
 <div class="brand">
 <img src="assets/images/logo.png" alt="Gold Star 4 Car">
 <h1>Gold Star 4 Car</h1>
+<p>Peinture, réparation et accessoires voitures de luxe</p>
 </div>
 </header>
+
 <section id="portfolio">
-<h3>Portfolio</h3>
+<h2>Portfolio</h2>
 <div id="portfolio-grid"></div>
 </section>
+
 <section id="all-images">
-<h3>All Images</h3>
+<h2>All Images</h2>
 <div id="gallery">Loading images...</div>
 </section>
+
 <section id="contact">
-<h3>Contact Form</h3>
+<h2>Contact Form</h2>
 <div class="card">
 <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 <input name="name" placeholder="Nom" required>
 <input name="phone" placeholder="Téléphone">
 <input name="email" placeholder="Email">
-<textarea name="message" placeholder="Votre message"></textarea>
+<textarea name="message" placeholder="Votre message / شنو تحب؟"></textarea>
 <button class="btn" type="submit">Envoyer</button>
 </form>
 </div>
 </section>
+
 <footer>© <span id="year"></span> Gold Star 4 Car</footer>
 </div>
+
 <div class="lightbox" id="lightbox">
 <div class="close-x" id="closeLight">×</div>
+<div class="details" id="detailDiv"></div>
 <img id="lightImg">
 <div>
 <button id="prevBtn"><</button>
 <button id="nextBtn">></button>
 </div>
 </div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-let currentImgs = [];
-let currentIndex = 0;
-const lightbox = document.getElementById('lightbox');
-const lightImg = document.getElementById('lightImg');
-function showImage(index){if(currentImgs.length===0) return;currentIndex = (index+currentImgs.length)%currentImgs.length;lightImg.src = currentImgs[currentIndex];lightbox.style.display='flex';}
+
+let currentImgs=[], currentIndex=0;
+const lightbox=document.getElementById('lightbox');
+const lightImg=document.getElementById('lightImg');
+const detailDiv=document.getElementById('detailDiv');
+
+function showImage(index){
+  if(currentImgs.length===0) return;
+  currentIndex=(index+currentImgs.length)%currentImgs.length;
+  lightImg.src=currentImgs[currentIndex].src;
+  detailDiv.textContent=currentImgs[currentIndex].info || '';
+  lightbox.style.display='flex';
+}
+
 document.getElementById('closeLight').addEventListener('click',()=>{lightbox.style.display='none';});
 document.getElementById('prevBtn').addEventListener('click',()=>showImage(currentIndex-1));
 document.getElementById('nextBtn').addEventListener('click',()=>showImage(currentIndex+1));
-const owner="Paneerty";
-const repo="-Star-Pro-Car-";
-const carTypes=["bmw","maserati","mercedes","vidette","jaguar"];
+
+// بيانات كل السيارات محليًا
+const carData = {
+  bmw: [
+    {src:"assets/images/bmw1.jpg",model:"M4",engine:"V6"},
+    {src:"assets/images/bmw2.jpg",model:"X5",engine:"V8"}
+  ],
+  maserati: [
+    {src:"assets/images/maserati1.jpg",model:"Ghibli",engine:"V6"},
+    {src:"assets/images/maserati2.jpg",model:"Levante",engine:"V8"}
+  ],
+  mercedes: [
+    {src:"assets/images/mercedes1.jpg",model:"S-Class",engine:"V6"},
+    {src:"assets/images/mercedes2.jpg",model:"AMG GT",engine:"V8"}
+  ],
+  vidette: [
+    {src:"assets/images/vidette1.jpg",model:"Type A",engine:"V4"},
+    {src:"assets/images/vidette2.jpg",model:"Type B",engine:"V6"}
+  ],
+  jaguar: [
+    {src:"assets/images/jaguar1.jpg",model:"F-Type",engine:"V8"},
+    {src:"assets/images/jaguar2.jpg",model:"XE",engine:"V6"}
+  ]
+};
+
 const portfolioGrid=document.getElementById('portfolio-grid');
-carTypes.forEach(type=>{
-  fetch(`https://api.github.com/repos/${owner}/${repo}/contents/assets/images/${type}`)
-  .then(r=>r.ok?r.json():Promise.reject(r.status))
-  .then(files=>{
-    if(!files.length) return;
-    const container=document.createElement('div');
-    container.className='grid';
-    const h4=document.createElement('h4');
-    h4.textContent=type.charAt(0).toUpperCase()+type.slice(1);
-    container.appendChild(h4);
-    files.filter(f=>/\.(jpe?g|png|gif|webp)$/i.test(f.name)).forEach(f=>{
-      const div=document.createElement('div');
-      div.className='thumb';
-      const img=document.createElement('img');
-      img.src=f.download_url;
-      img.alt=f.name;
-      img.loading='lazy';
-      const overlay=document.createElement('div');
-      overlay.className='overlay';
-      overlay.innerHTML=`<strong>${type.toUpperCase()}</strong><span>${f.name}</span>`;
-      const label=document.createElement('div');
-      label.className='label';
-      label.textContent='+${files.length}';
-      div.appendChild(img);
-      div.appendChild(overlay);
-      div.appendChild(label);
-      container.appendChild(div);
-      img.addEventListener('click',()=>{currentImgs=Array.from(container.querySelectorAll('img')).map(i=>i.src);currentIndex=currentImgs.indexOf(img.src);showImage(currentIndex);});
-      label.addEventListener('click',e=>{e.stopPropagation();currentImgs=Array.from(container.querySelectorAll('img')).map(i=>i.src);currentIndex=0;showImage(currentIndex);});
+
+Object.keys(carData).forEach(type=>{
+  const container=document.createElement('div');
+  container.className='grid';
+  const h3=document.createElement('h3');
+  h3.textContent=type.charAt(0).toUpperCase()+type.slice(1);
+  container.appendChild(h3);
+
+  carData[type].forEach(car=>{
+    const div=document.createElement('div');
+    div.className='thumb';
+    const img=document.createElement('img');
+    img.src=car.src;
+    img.alt=type;
+    img.info = `${type.toUpperCase()} - ${car.model} - ${car.engine}`;
+    const overlay=document.createElement('div');
+    overlay.className='overlay';
+    overlay.innerHTML=`<strong>${type.toUpperCase()}</strong><span>${car.model} - ${car.engine}</span>`;
+    const label=document.createElement('div');
+    label.className='label';
+    label.textContent='View';
+    div.appendChild(img);
+    div.appendChild(overlay);
+    div.appendChild(label);
+    container.appendChild(div);
+
+    img.addEventListener('click',()=>{
+      currentImgs=Array.from(container.querySelectorAll('img'));
+      currentIndex=currentImgs.indexOf(img);
+      showImage(currentIndex);
     });
-    const showAllBtn=document.createElement('button');
-    showAllBtn.className='show-all-btn';
-    showAllBtn.textContent='Show All';
-    showAllBtn.addEventListener('click',()=>{
-      currentImgs=Array.from(container.querySelectorAll('img')).map(i=>i.src);
-      currentIndex=0;showImage(currentIndex);
+
+    label.addEventListener('click',e=>{
+      e.stopPropagation();
+      currentImgs=Array.from(container.querySelectorAll('img'));
+      currentIndex=0;
+      showImage(currentIndex);
     });
-    container.appendChild(showAllBtn);
-    portfolioGrid.appendChild(container);
-  })
-  .catch(err=>console.error('GitHub fetch error:',err));
+  });
+
+  const showAllBtn=document.createElement('button');
+  showAllBtn.className='show-all-btn';
+  showAllBtn.textContent='Show All';
+  showAllBtn.addEventListener('click',()=>{
+    currentImgs=Array.from(container.querySelectorAll('img'));
+    currentIndex=0;
+    showImage(currentIndex);
+  });
+
+  container.appendChild(showAllBtn);
+  portfolioGrid.appendChild(container);
 });
+
+// Highlight active section
 const sections=document.querySelectorAll('section');
 const sidebarLinks=document.querySelectorAll('.sidebar a');
 window.addEventListener('scroll',()=>{
@@ -143,5 +198,7 @@ window.addEventListener('scroll',()=>{
   sidebarLinks.forEach(link=>{link.classList.remove('active');if(link.getAttribute('href')=='#'+current){link.classList.add('active');}});
 });
 </script>
+
 </body>
-</html>
+  </html>
+  
