@@ -1,204 +1,122 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold Star 4 Car - Galerie et Services</title>
+<title>Gold Star 4 Car - Galerie et Contact</title>
 <meta name="description" content="Peinture, réparation, polissage et accessoires voitures de luxe. Voir les images avant/après de toutes les voitures">
 <meta name="keywords" content="BMW, Maserati, Mercedes, Jaguar, Vidette, voitures, peinture, réparation, polissage, accessoires">
 <meta name="author" content="Gold Star 4 Car">
 <style>
-body {margin:0;font-family:'Arial',sans-serif;background:#111;color:#fff;scroll-behavior:smooth;}
-.sidebar {position:fixed;left:0;top:0;width:80px;height:100%;background:#222;display:flex;flex-direction:column;align-items:center;padding-top:20px;z-index:1000;}
-.sidebar a {color:gold;margin:20px 0;font-size:28px;display:flex;justify-content:center;position:relative;transition:transform 0.2s;}
-.sidebar a:hover {transform:scale(1.2);}
-.sidebar a .tooltip {visibility:hidden;width:140px;background:#333;color:gold;text-align:center;border-radius:5px;padding:5px;position:absolute;left:90px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;z-index:2000;}
-.sidebar a:hover .tooltip {visibility:visible;}
-.sidebar a.active {color:#fff;}
-.content {margin-left:80px;padding:20px;flex:1;}
-header {display:flex;align-items:center;padding:10px 0;}
-header .brand img {height:50px;margin-right:10px;}
-.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px;}
+body {margin:0;font-family:'Arial',sans-serif;background:#f5f5f5;color:#000;scroll-behavior:smooth;}
+header {display:flex;align-items:center;padding:10px 20px;}
+header .brand img {height:60px;margin-right:15px;}
+header h1 {font-size:28px;color:gold;margin:0;}
+.top-bar {display:flex;align-items:center;gap:15px;background:#fff;padding:10px 20px;box-shadow:0 2px 5px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;justify-content:space-between;}
+.top-bar a {text-decoration:none;color:#000;font-weight:bold;padding:6px 12px;border-radius:5px;transition:0.2s;background:none;}
+.top-bar a:hover {background:gold;color:#111;}
+.contact-line {display:flex;align-items:center;gap:20px;}
+.contact-line a {display:flex;align-items:center;gap:5px;color:#000;text-decoration:none;font-weight:bold;}
+.contact-line a:hover {color:gold;}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:20px;}
 .thumb {position:relative;cursor:pointer;overflow:hidden;border-radius:10px;}
-.thumb img {width:100%;border-radius:10px;transition: transform 0.3s;}
+.thumb img {width:100%;border-radius:10px;transition:transform 0.3s;}
 .thumb:hover img {transform: scale(1.05);}
-.thumb .label {position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,0.6);color:gold;padding:5px 8px;border-radius:5px;font-size:12px;cursor:pointer;}
-.thumb .overlay {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);color:gold;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s;text-align:center;padding:10px;font-size:14px;}
+.thumb .overlay {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);color:gold;display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s;text-align:center;font-size:14px;padding:10px;}
 .thumb:hover .overlay {opacity:1;}
-.show-all-btn {margin:10px;background:gold;color:#111;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:bold;}
-.show-all-btn:hover {background:#e6c200;}
-footer {text-align:center;padding:15px;background:#222;margin-top:30px;font-size:14px;}
-.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
-.lightbox img {max-width:90%;max-height:80%;border-radius:10px;margin-bottom:10px;transition: transform 0.3s;}
-.lightbox .details {color:gold;font-size:16px;margin-bottom:5px;text-align:center;}
+.btn {background-color:gold;color:#111;border:none;padding:10px 15px;border-radius:6px;font-weight:bold;cursor:pointer;transition:0.2s;}
+.btn:hover {background:#e6c200;}
+.card {background:#fff;padding:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);margin:20px 0;}
+footer {text-align:center;padding:15px;background:#fff;margin-top:30px;font-size:14px;color:#000;}
+.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
+.lightbox img {max-width:90%;max-height:80%;border-radius:10px;margin-bottom:10px;}
 .lightbox button {background:gold;color:#111;border:none;padding:10px 20px;margin:5px;border-radius:6px;cursor:pointer;font-weight:bold;}
 .lightbox button:hover {background:#e6c200;}
 .close-x {position:absolute;top:20px;right:30px;font-size:40px;color:gold;cursor:pointer;}
-h2,h3{margin-top:20px;color:gold;}
-@media(max-width:768px){body{flex-direction:column;}.sidebar{position:relative;width:100%;flex-direction:row;justify-content:space-around;padding:10px 0;}.content{margin-left:0;}}
+@media(max-width:768px){.top-bar{flex-direction:column;align-items:flex-start;}.contact-line{margin-left:0;}}
 </style>
 </head>
 <body>
-
-<div class="sidebar">
-<a href="#portfolio" class="active">📁<span class="tooltip">Portfolio</span></a>
-<a href="#all-images">🖼️<span class="tooltip">All Images</span></a>
-<a href="#contact">📞<span class="tooltip">Contact Form</span></a>
-</div>
-
-<div class="content">
 <header>
 <div class="brand">
 <img src="assets/images/logo.png" alt="Gold Star 4 Car">
 <h1>Gold Star 4 Car</h1>
-<p>Peinture, réparation et accessoires voitures de luxe</p>
 </div>
 </header>
-
+<div class="top-bar">
+<div>
+<a href="#feedback">Feedback</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="contact-line">
+<a href="https://wa.me/21626485696" target="_blank">📱 +216 26485696</a>
+<a href="tel:+21626485696">☎ +216 26485696</a>
+<a href="tel:+21697397183">☎ +216 97397183</a>
+</div>
+</div>
 <section id="portfolio">
-<h2>Portfolio</h2>
-<div id="portfolio-grid"></div>
+<h2>Galerie</h2>
+<div class="grid" id="portfolio-grid"></div>
 </section>
-
-<section id="all-images">
-<h2>All Images</h2>
-<div id="gallery">Loading images...</div>
-</section>
-
-<section id="contact">
-<h2>Contact Form</h2>
+<section id="feedback">
+<h2>Feedback</h2>
 <div class="card">
-<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-<input name="name" placeholder="Nom" required>
-<input name="phone" placeholder="Téléphone">
-<input name="email" placeholder="Email">
-<textarea name="message" placeholder="Votre message / شنو تحب؟"></textarea>
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<input name="name" placeholder="Nom" required style="width:100%;padding:8px;margin-bottom:10px;">
+<input name="email" placeholder="Email" required style="width:100%;padding:8px;margin-bottom:10px;">
+<textarea name="message" placeholder="Votre message" style="width:100%;padding:8px;margin-bottom:10px;"></textarea>
 <button class="btn" type="submit">Envoyer</button>
 </form>
 </div>
 </section>
-
-<footer>© <span id="year"></span> Gold Star 4 Car</footer>
+<section id="contact">
+<h2>Contact</h2>
+<div class="card">
+<p>Vous pouvez nous contacter via WhatsApp ou téléphone aux numéros indiqués en haut de la page.</p>
 </div>
-
+</section>
+<footer>© <span id="year"></span> Gold Star 4 Car</footer>
 <div class="lightbox" id="lightbox">
 <div class="close-x" id="closeLight">×</div>
-<div class="details" id="detailDiv"></div>
 <img id="lightImg">
 <div>
 <button id="prevBtn"><</button>
 <button id="nextBtn">></button>
 </div>
 </div>
-
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-
-let currentImgs=[], currentIndex=0;
-const lightbox=document.getElementById('lightbox');
-const lightImg=document.getElementById('lightImg');
-const detailDiv=document.getElementById('detailDiv');
-
-function showImage(index){
-  if(currentImgs.length===0) return;
-  currentIndex=(index+currentImgs.length)%currentImgs.length;
-  lightImg.src=currentImgs[currentIndex].src;
-  detailDiv.textContent=currentImgs[currentIndex].info || '';
-  lightbox.style.display='flex';
-}
-
+let currentImgs = [];
+let currentIndex = 0;
+const lightbox = document.getElementById('lightbox');
+const lightImg = document.getElementById('lightImg');
+function showImage(index){if(currentImgs.length===0) return;currentIndex=(index+currentImgs.length)%currentImgs.length;lightImg.src=currentImgs[currentIndex];lightbox.style.display='flex';}
 document.getElementById('closeLight').addEventListener('click',()=>{lightbox.style.display='none';});
 document.getElementById('prevBtn').addEventListener('click',()=>showImage(currentIndex-1));
 document.getElementById('nextBtn').addEventListener('click',()=>showImage(currentIndex+1));
-
-// بيانات كل السيارات محليًا
-const carData = {
-  bmw: [
-    {src:"assets/images/bmw1.jpg",model:"M4",engine:"V6"},
-    {src:"assets/images/bmw2.jpg",model:"X5",engine:"V8"}
-  ],
-  maserati: [
-    {src:"assets/images/maserati1.jpg",model:"Ghibli",engine:"V6"},
-    {src:"assets/images/maserati2.jpg",model:"Levante",engine:"V8"}
-  ],
-  mercedes: [
-    {src:"assets/images/mercedes1.jpg",model:"S-Class",engine:"V6"},
-    {src:"assets/images/mercedes2.jpg",model:"AMG GT",engine:"V8"}
-  ],
-  vidette: [
-    {src:"assets/images/vidette1.jpg",model:"Type A",engine:"V4"},
-    {src:"assets/images/vidette2.jpg",model:"Type B",engine:"V6"}
-  ],
-  jaguar: [
-    {src:"assets/images/jaguar1.jpg",model:"F-Type",engine:"V8"},
-    {src:"assets/images/jaguar2.jpg",model:"XE",engine:"V6"}
-  ]
-};
-
+const owner="Paneerty";
+const repo="-Star-Pro-Car-";
+const carTypes=["bmw","maserati","mercedes","vidette","jaguar"];
 const portfolioGrid=document.getElementById('portfolio-grid');
-
-Object.keys(carData).forEach(type=>{
-  const container=document.createElement('div');
-  container.className='grid';
-  const h3=document.createElement('h3');
-  h3.textContent=type.charAt(0).toUpperCase()+type.slice(1);
-  container.appendChild(h3);
-
-  carData[type].forEach(car=>{
-    const div=document.createElement('div');
-    div.className='thumb';
-    const img=document.createElement('img');
-    img.src=car.src;
-    img.alt=type;
-    img.info = `${type.toUpperCase()} - ${car.model} - ${car.engine}`;
-    const overlay=document.createElement('div');
-    overlay.className='overlay';
-    overlay.innerHTML=`<strong>${type.toUpperCase()}</strong><span>${car.model} - ${car.engine}</span>`;
-    const label=document.createElement('div');
-    label.className='label';
-    label.textContent='View';
-    div.appendChild(img);
-    div.appendChild(overlay);
-    div.appendChild(label);
-    container.appendChild(div);
-
-    img.addEventListener('click',()=>{
-      currentImgs=Array.from(container.querySelectorAll('img'));
-      currentIndex=currentImgs.indexOf(img);
-      showImage(currentIndex);
-    });
-
-    label.addEventListener('click',e=>{
-      e.stopPropagation();
-      currentImgs=Array.from(container.querySelectorAll('img'));
-      currentIndex=0;
-      showImage(currentIndex);
-    });
-  });
-
-  const showAllBtn=document.createElement('button');
-  showAllBtn.className='show-all-btn';
-  showAllBtn.textContent='Show All';
-  showAllBtn.addEventListener('click',()=>{
-    currentImgs=Array.from(container.querySelectorAll('img'));
-    currentIndex=0;
-    showImage(currentIndex);
-  });
-
-  container.appendChild(showAllBtn);
-  portfolioGrid.appendChild(container);
+carTypes.forEach(type=>{
+fetch(`https://api.github.com/repos/${owner}/${repo}/contents/assets/images/${type}`)
+.then(r=>r.ok?r.json():Promise.reject(r.status))
+.then(files=>{
+if(!files.length) return;
+files.filter(f=>/\.(jpe?g|png|gif|webp)$/i.test(f.name)).forEach(f=>{
+const div=document.createElement('div');
+div.className='thumb';
+const img=document.createElement('img');
+img.src=f.download_url;
+img.alt=f.name;
+img.loading='lazy';
+div.appendChild(img);
+portfolioGrid.appendChild(div);
+img.addEventListener('click',()=>{currentImgs=Array.from(document.querySelectorAll('#portfolio-grid img')).map(i=>i.src);currentIndex=currentImgs.indexOf(img.src);showImage(currentIndex);});
 });
-
-// Highlight active section
-const sections=document.querySelectorAll('section');
-const sidebarLinks=document.querySelectorAll('.sidebar a');
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(section=>{if(pageYOffset>=section.offsetTop-100){current=section.getAttribute('id');}});
-  sidebarLinks.forEach(link=>{link.classList.remove('active');if(link.getAttribute('href')=='#'+current){link.classList.add('active');}});
+})
+.catch(err=>console.error('GitHub fetch error:',err));
 });
 </script>
-
 </body>
   </html>
-  
