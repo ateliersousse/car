@@ -1,2 +1,2 @@
 # Gold Star
-gold Star 4 Painting 
+gold Star 4 Car
