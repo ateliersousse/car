@@ -1,433 +1,147 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gold Star 4 Car - Peinture, réparation, polissage et accessoires voitures / دهان وتصليح وصيانة سيارات فاخرة</title>
-<meta name="description" content="Services professionnels de peinture, réparation, polissage, correction couleur et accessoires pour voitures de luxe. شوف صور وفيديوهات قبل وبعد لكل أنواع السيارات وقطع الغيار">
-<meta name="keywords" content="Peinture voiture, réparation voiture, rayures, polissage, BMW, Audi, Porsche, Mercedes, voitures de luxe, accessoires voiture, Pare-chocs, Ailes, Phares, Rétroviseurs, Enjoliveurs, دهان سيارات, تصليح سيارات, بوليش, بونصاج, تصحيح ألوان, قطع غيار سيارات, أكسسوارات سيارات">
+<title>Gold Star 4 Car - Car Gallery</title>
+<meta name="description" content="Peinture, réparation, polissage et accessoires voitures de luxe. Voir les images avant/après de toutes les voitures">
+<meta name="keywords" content="BMW, Maserati, Mercedes, Jaguar, Vidette, voitures, peinture, réparation, polissage, accessoires">
 <meta name="author" content="Gold Star 4 Car">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://paneerty.github.io/-Star-Pro-Car-/">
-<meta property="og:title" content="Gold Star 4 Car - Peinture, réparation et accessoires voitures de luxe / دهان وتصليح سيارات فاخرة">
-<meta property="og:description" content="Découvrez nos services de peinture, réparation, polissage, correction couleur et accessoires pour voitures de luxe. شوف صور وفيديوهات قبل وبعد لكل السيارات والخدمات">
-<meta property="og:image" content="assets/images/logo.png">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gold Star 4 Car - Peinture, réparation et accessoires voitures / دهان وتصليح وصيانة سيارات">
-<meta name="twitter:description" content="Services professionnels de peinture, réparation, polissage, correction couleur et accessoires voitures de luxe. شوف صور وفيديوهات قبل وبعد لكل السيارات">
-<meta name="twitter:image" content="assets/images/logo.png">
-
 <style>
-/* Global */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #111;
-  color: #fff;
-  display: flex;
-  scroll-behavior: smooth;
-}
-
-/* Sidebar ثابت على اليسار */
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 80px;
-  height: 100%;
-  background-color: #222;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  z-index: 1000;
-}
-
-.sidebar a {
-  color: gold;
-  margin: 20px 0;
-  font-size: 28px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  transition: transform 0.2s;
-}
-
-.sidebar a:hover {
-  transform: scale(1.2);
-}
-
-.sidebar a .tooltip {
-  visibility: hidden;
-  width: 140px;
-  background-color: #333;
-  color: gold;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px;
-  position: absolute;
-  left: 90px;
-  top: 50%;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  font-size: 12px;
-  z-index: 2000;
-}
-
-.sidebar a:hover .tooltip {
-  visibility: visible;
-}
-
-.sidebar a.active {
-  color: #fff;
-}
-
-/* Content */
-.content {
-  margin-left: 80px;
-  padding: 20px;
-  flex: 1;
-}
-
-/* Header */
-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 10px 0;
-}
-
-header .brand img {
-  height: 50px;
-  margin-right: 10px;
-}
-
-/* Hero */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.hero .card {
-  flex: 1 1 60%;
-  background-color: #1a1a1a;
-  padding: 25px;
-  border-radius: 10px;
-}
-
-.hero aside.card {
-  flex: 1 1 35%;
-  background-color: #222;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-/* Buttons */
-.btn {
-  background-color: gold;
-  color: #111;
-  border: none;
-  padding: 12px 20px;
-  margin: 5px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  background-color: #e6c200;
-}
-
-.btn.ghost {
-  background-color: transparent;
-  border: 2px solid gold;
-  color: gold;
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.thumb {
-  position: relative;
-  cursor: pointer;
-}
-
-.thumb img {
-  width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.thumb img:hover {
-  transform: scale(1.05);
-}
-
-.thumb .label {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  background: rgba(0,0,0,0.6);
-  color: gold;
-  padding: 5px 8px;
-  border-radius: 5px;
-  font-size: 12px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #222;
-  margin-top: 30px;
-  font-size: 14px;
-}
-
-/* Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.lightbox img,
-.lightbox video {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.close-x {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: gold;
-  cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-  .sidebar {
-    position: relative;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
-  .content {
-    margin-left: 0;
-  }
-}
+body {margin:0;font-family:'Arial',sans-serif;background:#111;color:#fff;scroll-behavior:smooth;}
+.sidebar {position:fixed;left:0;top:0;width:80px;height:100%;background:#222;display:flex;flex-direction:column;align-items:center;padding-top:20px;z-index:1000;}
+.sidebar a {color:gold;margin:20px 0;font-size:28px;display:flex;justify-content:center;position:relative;transition:transform 0.2s;}
+.sidebar a:hover {transform:scale(1.2);}
+.sidebar a .tooltip {visibility:hidden;width:140px;background:#333;color:gold;text-align:center;border-radius:5px;padding:5px;position:absolute;left:90px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;z-index:2000;}
+.sidebar a:hover .tooltip {visibility:visible;}
+.sidebar a.active {color:#fff;}
+.content {margin-left:80px;padding:20px;flex:1;}
+header {display:flex;align-items:center;padding:10px 0;}
+header .brand img {height:50px;margin-right:10px;}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px;}
+.thumb {position:relative;cursor:pointer;overflow:hidden;border-radius:10px;}
+.thumb img {width:100%;border-radius:10px;transition: transform 0.3s;}
+.thumb:hover img {transform: scale(1.05);}
+.thumb .label {position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,0.6);color:gold;padding:5px 8px;border-radius:5px;font-size:12px;cursor:pointer;}
+.thumb .overlay {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);color:gold;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:opacity 0.3s;text-align:center;padding:10px;font-size:14px;}
+.thumb:hover .overlay {opacity:1;}
+.show-all-btn {margin:10px;background:gold;color:#111;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:bold;}
+.show-all-btn:hover {background:#e6c200;}
+footer {text-align:center;padding:15px;background:#222;margin-top:30px;font-size:14px;}
+.lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:2000;flex-direction:column;}
+.lightbox img {max-width:90%;max-height:80%;border-radius:10px;margin-bottom:10px;}
+.lightbox button {background:gold;color:#111;border:none;padding:10px 20px;margin:5px;border-radius:6px;cursor:pointer;font-weight:bold;}
+.lightbox button:hover {background:#e6c200;}
+.close-x {position:absolute;top:20px;right:30px;font-size:40px;color:gold;cursor:pointer;}
+h4{margin-top:20px;color:gold;}
+@media(max-width:768px){body{flex-direction:column;}.sidebar{position:relative;width:100%;flex-direction:row;justify-content:space-around;padding:10px 0;}.content{margin-left:0;}}
 </style>
 </head>
 <body>
-
-<!-- Sidebar ثابت مع tooltips -->
 <div class="sidebar">
-  <a href="#portfolio" class="active">📁<span class="tooltip">Portfolio / نماذج أعمال</span></a>
-  <a href="#videos">🎥<span class="tooltip">Vidéos / فيديوهات قصيرة</span></a>
-  <a href="#contact">📞<span class="tooltip">Contact / تواصل معانا</span></a>
+<a href="#portfolio" class="active">📁<span class="tooltip">Portfolio</span></a>
+<a href="#all-images">🖼️<span class="tooltip">All Images</span></a>
 </div>
-
-<!-- محتوى الصفحة -->
 <div class="content">
-  <header>
-    <div class="brand">
-      <img src="assets/images/logo.png" alt="Gold Star 4 Car">
-      <h1>Gold Star 4 Car</h1>
-      <p class="small">Peinture, réparation et accessoires voitures de luxe / دهان وتصليح وصيانة سيارات فاخرة</p>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="card">
-      <h2>Professionnels en peinture, réparation, polissage et accessoires voitures / محترفين في دهان، تصليح، بوليش وإكسسوارات السيارات</h2>
-      <p>Envoyez-nous une photo ou une description de votre voiture ou pièce, nous fournissons le service dans les 24h. / ابعثلنا صورة أو وصف لسيارتك أو القطعة، ونقدملّك الخدمة خلال 24 ساعة.</p>
-      <button class="btn">Demandez une consultation gratuite / اطلب استشارة مجانية</button>
-      <button class="btn ghost">Voir notre portfolio / شوف نماذج أعمالنا</button>
-    </div>
-    <aside class="card">
-      <h3>Service rapide / خدمة سريعة</h3>
-      <div class="contact-row">
-        <div><strong>WhatsApp:</strong><br><span id="whatsapp">+216 26485396</span></div>
-      </div>
-      <div class="socials">
-        <a href="https://www.instagram.com/vein_of_live">Instagram</a>
-        <a href="https://www.facebook.com/share/1FLnbJMcmQ/">Facebook</a>
-        <a href="https://www.tiktok.com/@ashref.auto?_t=ZN-90W6Z7w9ns6&_r=1">TikTok</a>
-      </div>
-    </aside>
-  </section>
-
-  <section id="portfolio">
-    <h3>Portfolio / نماذج أعمال</h3>
-    <div class="grid" id="portfolio-grid">
-      <div class="thumb"><img src="assets/images/ai_car1.jpg" alt="peinture et réparation avant/après / دهان وتصليح  قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car2.jpg" alt="peinture et réparation avant/après / دهان وتصليح  قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car3.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car4.jpeg" alt="peinture et réparation avant/après / دهان وتصليح  قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car5.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car6.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car7.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car8.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car9.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car10.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car11.jpeg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car12.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car13.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-      <div class="thumb"><img src="assets/images/ai_car14.jpg" alt="peinture et réparation avant/après / دهان وتصليح قبل وبعد"><div class="label">- Avant/Après / قبل/بعد</div></div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <h3>Vidéos courtes / فيديوهات قصيرة</h3>
-    <div class="grid">
-      <div class="thumb" data-video="assets/videos/video1.mp4"><img src="assets/images/video_thumb1.jpg" alt="Vidéo réparation BMW M4 / فيديو تصليح BMW M4"><div class="label">BMW M4 - Vidéo Avant/Après / فيديو قبل/بعد</div></div>
-      <div class="thumb" data-video="assets/videos/video2.mp4"><img src="assets/images/video_thumb2.jpg" alt="Vidéo réparation Audi RS7 / فيديو تصليح Audi RS7"><div class="label">Audi RS7 - Vidéo Avant/Après / فيديو قبل/بعد</div></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h3>Contact / تواصل معانا</h3>
-    <div class="card">
-      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input name="name" placeholder="Nom / الاسم" required>
-        <input name="phone" placeholder="Téléphone / الهاتف">
-        <input name="email" placeholder="Email / البريد الإلكتروني">
-        <textarea name="message" placeholder="Votre message / شنو تحب؟"></textarea>
-        <button class="btn" type="submit">Envoyer / ابعثلنا</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>© <span id="year"></span> Gold Star 4 Car / حقوق الطبع والنشر</footer>
+<header>
+<div class="brand">
+<img src="assets/images/logo.png" alt="Gold Star 4 Car">
+<h1>Gold Star 4 Car</h1>
 </div>
-
-<!-- Lightbox -->
+</header>
+<section id="portfolio">
+<h3>Portfolio</h3>
+<div id="portfolio-grid"></div>
+</section>
+<section id="all-images">
+<h3>All Images</h3>
+<div id="gallery">Loading images...</div>
+</section>
+<section id="contact">
+<h3>Contact Form</h3>
+<div class="card">
+<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<input name="name" placeholder="Nom" required>
+<input name="phone" placeholder="Téléphone">
+<input name="email" placeholder="Email">
+<textarea name="message" placeholder="Votre message"></textarea>
+<button class="btn" type="submit">Envoyer</button>
+</form>
+</div>
+</section>
+<footer>© <span id="year"></span> Gold Star 4 Car</footer>
+</div>
 <div class="lightbox" id="lightbox">
-  <div class="close-x" id="closeLight">×</div>
-  <img id="lightImg">
-  <video id="lightVideo" controls></video>
+<div class="close-x" id="closeLight">×</div>
+<img id="lightImg">
+<div>
+<button id="prevBtn"><</button>
+<button id="nextBtn">></button>
 </div>
-
+</div>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-
-/* Lightbox */
-document.querySelectorAll('.thumb').forEach(item => {
-  item.addEventListener('click', () => {
-    const video = item.getAttribute('data-video');
-    const lightbox = document.getElementById('lightbox');
-    const img = document.getElementById('lightImg');
-    const vid = document.getElementById('lightVideo');
-    if(video){
-      img.style.display = 'none';
-      vid.src = video;
-      vid.style.display = 'block';
-    } else {
-      vid.style.display = 'none';
-      img.src = item.querySelector('img').src;
-      img.style.display = 'block';
-    }
-    lightbox.style.display = 'flex';
-  });
+let currentImgs = [];
+let currentIndex = 0;
+const lightbox = document.getElementById('lightbox');
+const lightImg = document.getElementById('lightImg');
+function showImage(index){if(currentImgs.length===0) return;currentIndex = (index+currentImgs.length)%currentImgs.length;lightImg.src = currentImgs[currentIndex];lightbox.style.display='flex';}
+document.getElementById('closeLight').addEventListener('click',()=>{lightbox.style.display='none';});
+document.getElementById('prevBtn').addEventListener('click',()=>showImage(currentIndex-1));
+document.getElementById('nextBtn').addEventListener('click',()=>showImage(currentIndex+1));
+const owner="Paneerty";
+const repo="-Star-Pro-Car-";
+const carTypes=["bmw","maserati","mercedes","vidette","jaguar"];
+const portfolioGrid=document.getElementById('portfolio-grid');
+carTypes.forEach(type=>{
+  fetch(`https://api.github.com/repos/${owner}/${repo}/contents/assets/images/${type}`)
+  .then(r=>r.ok?r.json():Promise.reject(r.status))
+  .then(files=>{
+    if(!files.length) return;
+    const container=document.createElement('div');
+    container.className='grid';
+    const h4=document.createElement('h4');
+    h4.textContent=type.charAt(0).toUpperCase()+type.slice(1);
+    container.appendChild(h4);
+    files.filter(f=>/\.(jpe?g|png|gif|webp)$/i.test(f.name)).forEach(f=>{
+      const div=document.createElement('div');
+      div.className='thumb';
+      const img=document.createElement('img');
+      img.src=f.download_url;
+      img.alt=f.name;
+      img.loading='lazy';
+      const overlay=document.createElement('div');
+      overlay.className='overlay';
+      overlay.innerHTML=`<strong>${type.toUpperCase()}</strong><span>${f.name}</span>`;
+      const label=document.createElement('div');
+      label.className='label';
+      label.textContent='+${files.length}';
+      div.appendChild(img);
+      div.appendChild(overlay);
+      div.appendChild(label);
+      container.appendChild(div);
+      img.addEventListener('click',()=>{currentImgs=Array.from(container.querySelectorAll('img')).map(i=>i.src);currentIndex=currentImgs.indexOf(img.src);showImage(currentIndex);});
+      label.addEventListener('click',e=>{e.stopPropagation();currentImgs=Array.from(container.querySelectorAll('img')).map(i=>i.src);currentIndex=0;showImage(currentIndex);});
+    });
+    const showAllBtn=document.createElement('button');
+    showAllBtn.className='show-all-btn';
+    showAllBtn.textContent='Show All';
+    showAllBtn.addEventListener('click',()=>{
+      currentImgs=Array.from(container.querySelectorAll('img')).map(i=>i.src);
+      currentIndex=0;showImage(currentIndex);
+    });
+    container.appendChild(showAllBtn);
+    portfolioGrid.appendChild(container);
+  })
+  .catch(err=>console.error('GitHub fetch error:',err));
 });
-
-document.getElementById('closeLight').addEventListener('click', () => {
-  document.getElementById('lightbox').style.display = 'none';
-  document.getElementById('lightVideo').pause();
-});
-
-/* Highlight active section */
-const sections = document.querySelectorAll('section');
-const sidebarLinks = document.querySelectorAll('.sidebar a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if(pageYOffset >= sectionTop){
-      current = section.getAttribute('id');
-    }
-  });
-  sidebarLinks.forEach(link => {
-    link.classList.remove('active');
-    if(link.getAttribute('href') === '#' + current){
-      link.classList.add('active');
-    }
-  });
+const sections=document.querySelectorAll('section');
+const sidebarLinks=document.querySelectorAll('.sidebar a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(section=>{if(pageYOffset>=section.offsetTop-100){current=section.getAttribute('id');}});
+  sidebarLinks.forEach(link=>{link.classList.remove('active');if(link.getAttribute('href')=='#'+current){link.classList.add('active');}});
 });
 </script>
-
-<html lang="ar">
-<head>
-  <meta charset="utf-8" />
-  <title>معرض سيارات Maserati</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; background: #111; color: white; }
-    #gallery img { max-width: 220px; margin: 10px; border-radius: 12px; box-shadow: 0 0 10px #000; }
-  </style>
-</head>
-<body>
-  <h1>🚘 صور Maserati</h1>
-  <div id="gallery">جاري تحميل الصور...</div>
-
-  <script>
-    const owner = "OWNER"; paneerty// 🔁 بدّل باسم حسابك GitHub
-    const repo  = "REPO";  -star-pro-car// 🔁 بدّل باسم المشروع
-    const path  = "assets/images/mazerati"; // 📂 المجلد اللي فيه الصور
-
-    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-
-    fetch(apiUrl)
-      .then(r => {
-        if (!r.ok) throw new Error("GitHub API error " + r.status);
-        return r.json();
-      })
-      .then(files => {
-        const gallery = document.getElementById("gallery");
-        gallery.innerHTML = "";
-        files
-          .filter(f => /\.(jpe?g|png|gif|webp|svg)$/i.test(f.name))
-          .forEach(f => {
-            const img = document.createElement("img");
-            img.src = f.download_url;
-            img.alt = f.name;
-            img.loading = "lazy";
-            gallery.appendChild(img);
-          });
-        if (!gallery.children.length) gallery.textContent = "ما فماش صور في المجلد.";
-      })
-      .catch(err => {
-        document.getElementById("gallery").textContent = "خطأ: " + err.message;
-        console.error(err);
-      });
-  </script>
 </body>
 </html>
-  
-
-</body>
-  </html>
-        
