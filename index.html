@@ -1,221 +1,114 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Galerie & Contact</title>
-    <!-- Police Noto Serif -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Car Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
     <style>
+        /* CSS embedded for simplicity; move to external file if needed */
         body {
-            background-color: #d3d3d3; /* gris */
-            font-family: 'Noto Serif', serif;
-            color: #000;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
             margin: 0;
             padding: 0;
         }
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        header img {
-            height: 50px;
-        }
-        header .social {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        header .social a img {
-            height: 30px;
-        }
-        .gallery, .videos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            background-color: #000;
             padding: 20px;
+            text-align: center;
+            position: relative;
         }
-        .folder {
-            margin-bottom: 40px;
-            width: 100%;
+        .title {
+            font-size: 3em;
+            color: #FFD700; /* Gold color */
+            margin: 0;
         }
-        .folder h2 {
-            margin-bottom: 10px;
-        }
-        .folder .images {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .folder .images img {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid #000;
-        }
-        .folder .show-more {
-            width: 200px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            background: #aaa;
-            cursor: pointer;
-            border: 2px solid #000;
-        }
-        .video-container video {
-            width: 300px;
-            height: 200px;
-            margin-bottom: 15px;
-        }
-        section.contact, section.feedback {
-            background: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-        }
-        section.contact p {
-            margin: 5px 0;
-        }
-        section.feedback form {
+        .social-buttons {
+            position: absolute;
+            top: 80px; /* Under the title */
+            left: 20px;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        section.feedback input, section.feedback textarea {
-            padding: 8px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            width: 300px;
-        }
-        section.feedback button {
-            width: 100px;
-            padding: 8px;
-            border: none;
-            background: grey;
+        .social-buttons a {
             color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-buttons a:hover {
+            color: #FFD700; /* Gold on hover */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .grid-item {
+            background-color: #111; /* Dark gray for contrast */
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <img src="assets/images/logo.png" alt="Logo">
-    <div class="social">
-        <a href="https://facebook.com" target="_blank">
-            <img src="assets/images/facebook.png" alt="Facebook">
-        </a>
+    <header>
+        <h1 class="title">Prestige Car</h1>
+        <div class="social-buttons">
+            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a> <!-- Replace with your WhatsApp link -->
+            <a href="https://www.facebook.com/YOUR_FACEBOOK_PROFILE" target="_blank"><i class="fab fa-facebook"></i></a> <!-- Replace with your Facebook link -->
+        </div>
+    </header>
+    
+    <div class="container">
+        <section>
+            <h2>About Our Workshop</h2>
+            <p>Welcome to Prestige Car Workshop. We specialize in high-end car detailing, repairs, and customization. Our team ensures your vehicle gets the prestige it deserves.</p>
+        </section>
+        
+        <section>
+            <h2>Our Services</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <img src="https://via.placeholder.com/300x200?text=Car+Detailing" alt="Car Detailing">
+                    <h3>Premium Detailing</h3>
+                    <p>Restore your car's shine with our expert detailing services.</p>
+                </div>
+                <div class="grid-item">
+                    <img src="https://via.placeholder.com/300x200?text=Repairs" alt="Repairs">
+                    <h3>Repairs & Maintenance</h3>
+                    <p>Keep your car running smoothly with our repair expertise.</p>
+                </div>
+                <div class="grid-item">
+                    <img src="https://via.placeholder.com/300x200?text=Customization" alt="Customization">
+                    <h3>Custom Modifications</h3>
+                    <p>Personalize your ride with our customization options.</p>
+                </div>
+                <!-- Add more grid items as needed -->
+            </div>
+        </section>
     </div>
-</header>
-
-<main>
-
-    <!-- Galerie Images -->
-    <div class="gallery" id="gallery"></div>
-
-    <!-- Galerie Vidéos -->
-    <div class="videos" id="videos"></div>
-
-    <!-- Contact -->
-    <section class="contact">
-        <h2>Contact</h2>
-        <p>+21626485396</p>
-        <p>+21697397183</p>
-    </section>
-
-    <!-- Feedback -->
-    <section class="feedback">
-        <h2>Feedback</h2>
-        <form id="feedbackForm">
-            <input type="text" name="name" placeholder="Nom" required>
-            <input type="email" name="email" placeholder="E-mail" required>
-            <textarea name="message" placeholder="Message" rows="4" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-
-</main>
-
-<script>
-    // --- IMAGES ---
-    const imageFolders = ['assets/images/lmoojalled']; // ajoute plus de dossiers si besoin
-    const galleryDiv = document.getElementById('gallery');
-
-    imageFolders.forEach(folder => {
-        fetch(folder)
-        .then(() => {
-            // Si serveur local ne permet pas fetch dossier, on peut lister les fichiers manuellement
-            const images = ['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg','img6.jpg']; // <-- liste des images du dossier
-            const folderDiv = document.createElement('div');
-            folderDiv.classList.add('folder');
-            folderDiv.innerHTML = `<h2>${folder}</h2>`;
-            const imgContainer = document.createElement('div');
-            imgContainer.classList.add('images');
-
-            images.forEach((img, index) => {
-                if(index < 4){
-                    const imgEl = document.createElement('img');
-                    imgEl.src = `${folder}/${img}`;
-                    imgContainer.appendChild(imgEl);
-                }
-            });
-
-            if(images.length > 4){
-                const more = document.createElement('div');
-                more.classList.add('show-more');
-                more.textContent = '+';
-                more.addEventListener('click', () => {
-                    images.slice(4).forEach(img => {
-                        const imgEl = document.createElement('img');
-                        imgEl.src = `${folder}/${img}`;
-                        imgContainer.appendChild(imgEl);
-                    });
-                    more.style.display = 'none';
-                });
-                imgContainer.appendChild(more);
-            }
-
-            folderDiv.appendChild(imgContainer);
-            galleryDiv.appendChild(folderDiv);
-        });
-    });
-
-    // --- VIDEOS ---
-    const videoFolders = ['assets/video/lmoojalled']; 
-    const videosDiv = document.getElementById('videos');
-
-    videoFolders.forEach(folder => {
-        const videos = ['video1.mp4','video2.mp4']; // <-- liste des vidéos du dossier
-        videos.forEach(v => {
-            const container = document.createElement('div');
-            container.classList.add('video-container');
-            container.innerHTML = `<video controls src="${folder}/${v}"></video>`;
-            videosDiv.appendChild(container);
-        });
-    });
-
-    // --- FEEDBACK FORM ---
-    const feedbackForm = document.getElementById('feedbackForm');
-    feedbackForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        const formData = new FormData(feedbackForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        window.location.href = `mailto:amochtatar@gmail.com?subject=Feedback de ${name}&body=${message}%0AEmail: ${email}`;
-    });
-</script>
-
+    
+    <footer>
+        <p>&copy; 2023 Prestige Car Workshop. All rights reserved.</p>
+    </footer>
 </body>
-  </html>
-  
+</html>
