@@ -1,114 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestige Car Workshop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
-    <style>
-        /* CSS embedded for simplicity; move to external file if needed */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #000;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        .title {
-            font-size: 3em;
-            color: #FFD700; /* Gold color */
-            margin: 0;
-        }
-        .social-buttons {
-            position: absolute;
-            top: 80px; /* Under the title */
-            left: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .social-buttons a {
-            color: #fff;
-            font-size: 1.5em;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .social-buttons a:hover {
-            color: #FFD700; /* Gold on hover */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .grid-item {
-            background-color: #111; /* Dark gray for contrast */
-            border: 1px solid #333;
-            padding: 10px;
-            text-align: center;
-        }
-        .grid-item img {
-            width: 100%;
-            height: auto;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #111;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>موقعي الرسمي</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <header>
-        <h1 class="title">Prestige Car</h1>
-        <div class="social-buttons">
-            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a> <!-- Replace with your WhatsApp link -->
-            <a href="https://www.facebook.com/YOUR_FACEBOOK_PROFILE" target="_blank"><i class="fab fa-facebook"></i></a> <!-- Replace with your Facebook link -->
-        </div>
-    </header>
-    
-    <div class="container">
-        <section>
-            <h2>About Our Workshop</h2>
-            <p>Welcome to Prestige Car Workshop. We specialize in high-end car detailing, repairs, and customization. Our team ensures your vehicle gets the prestige it deserves.</p>
-        </section>
-        
-        <section>
-            <h2>Our Services</h2>
-            <div class="grid">
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200?text=Car+Detailing" alt="Car Detailing">
-                    <h3>Premium Detailing</h3>
-                    <p>Restore your car's shine with our expert detailing services.</p>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200?text=Repairs" alt="Repairs">
-                    <h3>Repairs & Maintenance</h3>
-                    <p>Keep your car running smoothly with our repair expertise.</p>
-                </div>
-                <div class="grid-item">
-                    <img src="https://via.placeholder.com/300x200?text=Customization" alt="Customization">
-                    <h3>Custom Modifications</h3>
-                    <p>Personalize your ride with our customization options.</p>
-                </div>
-                <!-- Add more grid items as needed -->
-            </div>
-        </section>
+
+<!-- 🔵 Top Navbar -->
+<header class="navbar">
+  <div class="nav-left">
+    <!-- تغيير اللوجو -->
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <span class="site-name">موقعي الرسمي</span>
+  </div>
+
+  <div class="nav-right">
+    <!-- رابط صفحة فيسبوك -->
+    <a href="https://www.facebook.com/share/17Ye3cXY4Q/" target="_blank" class="fb-btn">
+      صفحتنا على فيسبوك
+    </a>
+  </div>
+</header>
+
+<!-- 🧱 Main Layout -->
+<div class="container">
+
+  <!-- Left Sidebar -->
+  <aside class="sidebar left">
+    <h3>القائمة</h3>
+    <ul>
+      <li>🏠 الرئيسية</li>
+      <li>ℹ️ من نحن</li>
+      <li>📞 تواصل معنا</li>
+    </ul>
+  </aside>
+
+  <!-- Feed -->
+  <main class="feed">
+
+    <!-- Post -->
+    <div class="post">
+      <h4>مرحبا بكم 👋</h4>
+      <p>
+        هذا هو الموقع الرسمي المرتبط بصفحتنا على فيسبوك.
+      </p>
+      <a class="post-link" href="https://www.facebook.com/share/17Ye3cXY4Q/" target="_blank">
+        زيارة المنشور على فيسبوك
+      </a>
     </div>
-    
-    <footer>
-        <p>&copy; 2023 Prestige Car Workshop. All rights reserved.</p>
-    </footer>
+
+    <div class="post">
+      <h4>آخر التحديثات</h4>
+      <p>
+        تابعونا دائما لمعرفة كل جديد.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside class="sidebar right">
+    <h3>روابط سريعة</h3>
+    <a href="https://www.facebook.com/share/17Ye3cXY4Q/" target="_blank">
+      🔗 صفحة فيسبوك
+    </a>
+  </aside>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
