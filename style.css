@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  direction: rtl;
+}
+
+/* Navbar */
+.navbar {
+  background: #1877f2;
+  color: white;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.site-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.fb-btn {
+  background: white;
+  color: #1877f2;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  padding: 16px;
+  gap: 16px;
+}
+
+/* Sidebars */
+.sidebar {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 20%;
+  height: fit-content;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 8px 0;
+}
+
+/* Feed */
+.feed {
+  width: 60%;
+}
+
+.post {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.post-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1877f2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .feed {
+    width: 100%;
+  }
+}
