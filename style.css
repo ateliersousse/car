@@ -81,6 +81,8 @@ header {
 .compare img {
   width: 100%;
   border-radius: 70px;
+  max-width: 70%;
+  height: auto;
 }
 
 .map {
