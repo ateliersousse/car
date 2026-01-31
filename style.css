@@ -2,7 +2,7 @@ body {
   margin: 0;
   color: #f1f1f1;
   font-family: "Segoe UI", italic;
-  font-size: 30px;
+  font-size: 60px;
 }
 .video-bg {
   position: fixed;
@@ -93,9 +93,10 @@ header {
 
 .map iframe {
   width: 100%;
+  max-width: 100%;
   height: 300px;
   border: 0;
-  border-radius: 20px;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .tarifs {
