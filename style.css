@@ -30,11 +30,11 @@ header {
 }
 
 .logo {
-  height: 55px;
+  height: 200px;
 }
 
 .slogan {
-  padding: 10px 15px;
+  padding: 3px 15px;
   color: #bbb;
   font-style: italic;
 }
