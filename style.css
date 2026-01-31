@@ -56,8 +56,8 @@ header {
 }
 
 .gallery {
-  width: 150px;
-  height: 180px;
+  width: 50px;
+  height: 80px;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
   gap: 5px;
