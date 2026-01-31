@@ -135,9 +135,10 @@ header {
   padding: 5px;
   background: #128C7E;
   border: none;
-  border-radius: 10px;
+  border-radius: 60px;
   color: white;
   font-weight: bold;
+  font-size: 40px;
 }
 
 .btn {
