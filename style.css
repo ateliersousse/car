@@ -80,9 +80,9 @@ header {
 }
 
 .compare img {
-  width: 50%;
+  width: 100%;
   border-radius: 70px;
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
   padding: 5px;
 }
