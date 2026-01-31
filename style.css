@@ -3,7 +3,7 @@ body {
   color: #f1f1f1;
   font-family: "Segoe UI", italic;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 30px;
 }
 .video-bg {
   position: fixed;
@@ -56,8 +56,8 @@ header {
 }
 
 .gallery {
-  width: 50px;
-  height: 80px;
+  width: 150px;
+  height: 180px;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
   gap: 5px;
