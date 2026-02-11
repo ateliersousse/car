@@ -1,34 +1,245 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Réservation - GS 4C</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réservation - GS 4C</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+  color:white;
+  overflow:hidden;
+}
+
+/* Gold moving light */
+body::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#d4af37 0%, transparent 70%);
+  animation:moveLight 8s infinite alternate ease-in-out;
+  opacity:0.15;
+}
+
+@keyframes moveLight{
+  from{transform:translate(-200px,-200px);}
+  to{transform:translate(300px,300px);}
+}
+
+.container{
+  width:100%;
+  max-width:520px;
+  padding:20px;
+  position:relative;
+  z-index:1;
+}
+
+header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.logo{
+  width:130px;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:30px;
+  letter-spacing:2px;
+  background:linear-gradient(45deg,#d4af37,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.reservation-form{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(212,175,55,0.3);
+  backdrop-filter:blur(15px);
+  padding:35px;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  box-shadow:0 0 40px rgba(212,175,55,0.2);
+}
+
+input, select, textarea{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(0,0,0,0.6);
+  color:white;
+  font-size:15px;
+  transition:0.3s;
+  outline:none;
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color:#d4af37;
+  box-shadow:0 0 12px #d4af37;
+}
+
+textarea{
+  resize:none;
+  height:100px;
+}
+
+button{
+  padding:16px;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(45deg,#d4af37,#f5d76e);
+  color:black;
+  transition:0.4s;
+  letter-spacing:1px;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #d4af37;
+}
+
+/* Progress bar */
+.progress{
+  width:0%;
+  height:4px;
+  background:#d4af37;
+  border-radius:5px;
+  margin-top:10px;
+  transition:width 2s ease;
+}
+
+/* Success animation */
+.success{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  background:#111;
+  border:2px solid #d4af37;
+  padding:30px 40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 30px #d4af37;
+  z-index:999;
+  transition:0.4s;
+}
+
+.success.show{
+  transform:translate(-50%,-50%) scale(1);
+}
+
+.success span{
+  font-size:40px;
+  color:#d4af37;
+  display:block;
+  margin-bottom:10px;
+}
+
+@media(max-width:480px){
+  .reservation-form{padding:25px;}
+  h1{font-size:22px;}
+}
+</style>
 </head>
+
 <body>
+
+<div class="container">
 
 <header>
   <img src="assets/logo.png" class="logo">
-  <h1>Réservation</h1>
+  <h1>RÉSERVATION</h1>
 </header>
 
 <form class="reservation-form">
-  <input type="text" placeholder="Nom complet" required>
-  <input type="tel" placeholder="Téléphone" required>
+  <input type="text" id="name" placeholder="Nom complet" required>
+  <input type="tel" id="phone" placeholder="Téléphone" required>
 
-  <select>
+  <select id="service">
     <option>Peinture automobile</option>
     <option>Lustrage</option>
     <option>Peinture des jantes</option>
     <option>Carrosserie métallique</option>
   </select>
 
-  <input type="date" required> 
-  <textarea placeholder="Détails du véhicule"></textarea>
+  <input type="date" id="date" required> 
+  <textarea id="details" placeholder="Détails du véhicule"></textarea>
 
-  <button type="button" onclick="sendWhatsApp()">Envoyer la demande</button>
+  <button type="button" onclick="sendWhatsApp()">CONFIRMER LA DEMANDE</button>
+
+  <div class="progress" id="progressBar"></div>
 </form>
 
-<script src="script.js"></script>
+</div>
+
+<div class="success" id="successBox">
+  <span>✔</span>
+  Demande envoyée
+</div>
+
+<!-- Click Sound -->
+<audio id="clickSound">
+  <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function sendWhatsApp(){
+
+  let progress = document.getElementById("progressBar");
+  let success = document.getElementById("successBox");
+  let sound = document.getElementById("clickSound");
+
+  sound.play();
+  progress.style.width = "100%";
+
+  setTimeout(function(){
+
+    success.classList.add("show");
+
+  },1500);
+
+  setTimeout(function(){
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
+    let date = document.getElementById("date").value;
+    let details = document.getElementById("details").value;
+
+    let message = `Nouvelle réservation GS 4C:%0A
+Nom: ${name}%0A
+Téléphone: ${phone}%0A
+Service: ${service}%0A
+Date: ${date}%0A
+Détails: ${details}`;
+
+    let whatsappNumber = "21655138035";
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`);
+
+    progress.style.width = "0%";
+    success.classList.remove("show");
+
+  },3000);
+}
+</script>
+
 </body>
 </html>
